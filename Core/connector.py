@@ -26,6 +26,9 @@ class QuicheBotCore:
             print("Connected", connector.connector_name)
 
     def ping_command(self, message: Message):
-        if len(message.command) == 1:
-            self.connectors[message.msg_source].send_message(
-                'Hello!', message.msg_object)
+        if message.is_command and len(message.command) > 0:
+            if message.command[0] == 'mcexec':
+                response = self.connectors['Minecraft'].send_message(str.join(' ', message.command[1:]), None)
+                self.connectors[message.msg_source].send_message(response, message)
+            else:
+                self.connectors[message.msg_source].send_message('pong', message)
