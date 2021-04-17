@@ -1,0 +1,8 @@
+  command_prefix: "!"
+  twitch:
+      enable: true
+      client-id: "TWITCH CLIENT ID"
+      client-secret: "TWITCH CLIENT SECRET"
+      oauth: "TWITCH CLIENT OAUTH"
+      channel: "TWITCH CHANNEL  (Prepend with #)"
+      nickname: "TWITCH BOT NICK"
