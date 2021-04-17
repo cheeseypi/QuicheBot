@@ -2,10 +2,11 @@ import re
 from .settings import load_setting
 
 class Message:
-    def __init__(self, msg_text, msg_from=None, source=None):
+    def __init__(self, msg_text, msg_from=None, source=None, customObj=None):
         self.msg_text = re.sub(r'\s+', ' ',msg_text.strip())
         self.msg_from = msg_from
         self.msg_source = source
+        self.msg_object = customObj
 
         command_pfx = load_setting('command_prefix').strip()
         self.is_command=self.msg_text.startswith(command_pfx)
